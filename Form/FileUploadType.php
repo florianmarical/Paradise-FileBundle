@@ -25,6 +25,7 @@ class FileUploadType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'Paradise\FileBundle\Entity\File',
             'csrf_protection' => false,
+            'image_path' => '',
         ));
     }
 
@@ -33,7 +34,7 @@ class FileUploadType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'portail_filebundle_file';
+        return 'paradise_filebundle_file';
     }
 
 
