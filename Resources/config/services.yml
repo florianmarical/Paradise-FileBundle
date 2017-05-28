@@ -1,0 +1,4 @@
+services:
+    ServiceFile:
+        class:        Paradise\FileBundle\Service\ServiceFile
+        arguments:    ['@service_container']
