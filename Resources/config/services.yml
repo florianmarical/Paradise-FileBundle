@@ -2,3 +2,8 @@ services:
     ServiceFile:
         class:        Paradise\FileBundle\Service\ServiceFile
         arguments:    ['@service_container']
+        
+    app.form.type.customFile:
+        class: Paradise\FileBundle\Form\CustomFileType
+        tags:
+            - { name: form.type }

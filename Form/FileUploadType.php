@@ -5,7 +5,7 @@ namespace Paradise\FileBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Paradise\FileBundle\Form\CustomFileType;
 
 class FileUploadType extends AbstractType
 {
@@ -14,7 +14,7 @@ class FileUploadType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('file', FileType::class, array('label' => false)) ;
+        $builder->add('file', CustomFileType::class, array('label' => false, 'path' => $options['path'])) ;
     }
     
     /**
@@ -25,7 +25,7 @@ class FileUploadType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'Paradise\FileBundle\Entity\File',
             'csrf_protection' => false,
-            'image_path' => '',
+            'path' => false,
         ));
     }
 

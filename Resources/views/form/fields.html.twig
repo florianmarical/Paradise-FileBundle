@@ -1,0 +1,9 @@
+{% block customfile_widget %}
+    {% spaceless %}
+    {{ block('form_widget') }}
+
+    {% if form.vars.path is defined and form.vars.path is not null %}
+        <a target="_blank" href="{{asset(form.vars.path)}}"><img src="{{asset(form.vars.path) }}"/></a>
+    {% endif %}
+    {% endspaceless %}
+{% endblock %}
