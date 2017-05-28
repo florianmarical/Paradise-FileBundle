@@ -3,7 +3,7 @@
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
+Attention the template use Gedmo Uploadable !
 
 Composer.json
 
@@ -52,3 +52,18 @@ $builder->add('favicon', FileUploadType::class, array('attr' => array('placehold
 ```
 
 If path is true, the picture appears in the render
+
+## Uses
+
+In a controller for the upload.
+Attention at the parameter. he is in parameter.yml.
+
+example: 
+parameters:
+    file:
+        directory: 'uploads/directory'
+
+```
+$path = $this->getParameter('file')['site_directory'] . $site->getId();
+$this->get('ServiceFile')->uploadFile($site->getFavicon(), $path);
+```
