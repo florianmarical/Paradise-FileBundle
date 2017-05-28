@@ -1,0 +1,32 @@
+{
+    "name": "paradise/file-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony FileBundle",
+    "keywords": [],
+    "license": "GPL-3.0+",
+    "authors": [
+        {
+            "name": "florianmarical",
+            "email": "florian.marical@gmail.com",
+            "homepage": ""
+
+        }
+
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/framework-bundle": ">=3.0",
+        "twig/twig": "*",
+        "doctrine/doctrine-bundle": "*"
+
+    },
+    "autoload": {
+        "psr-0": {
+            "Paradise\\FileBundle": ""
+        }
+
+    },
+    "target-dir": "Paradise/FileBundle",
+    "minimum-stability": "dev"
+
+}

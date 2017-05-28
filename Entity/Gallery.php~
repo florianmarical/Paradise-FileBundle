@@ -1,0 +1,112 @@
+<?php
+
+namespace Portail\FileBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * Gallery
+ *
+ * @ORM\Table(name="gallery")
+ * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Portail\FileBundle\Repository\GalleryRepository")
+ */
+class Gallery {
+    
+    /**
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(name="name")
+     */
+    private $name;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="GalleryFile", mappedBy="gallery", cascade={"persist"})
+     */
+    private $galleryfile;
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->galleryfile = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Gallery
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Add galleryfile
+     *
+     * @param \Portail\FileBundle\Entity\GalleryFile $galleryfile
+     *
+     * @return Gallery
+     */
+    public function addGalleryfile(\Portail\FileBundle\Entity\GalleryFile $galleryfile)
+    {
+        $this->galleryfile[] = $galleryfile;
+
+        return $this;
+    }
+
+    /**
+     * Remove galleryfile
+     *
+     * @param \Portail\FileBundle\Entity\GalleryFile $galleryfile
+     */
+    public function removeGalleryfile(\Portail\FileBundle\Entity\GalleryFile $galleryfile)
+    {
+        $this->galleryfile->removeElement($galleryfile);
+    }
+
+    /**
+     * Get galleryfile
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getGalleryfile()
+    {
+        return $this->galleryfile;
+    }
+    
+    public function __toString(){
+        return $this->getName();
+    }
+}
