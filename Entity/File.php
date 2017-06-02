@@ -95,8 +95,8 @@ class File {
     }
 
     public function __toString() {
-        if (null !== $this->getFile() && null !== $this->getFile()->getLinkTarget()) {
-            return $this->getFile()->getLinkTarget();
+        if (null !== $this->getFile() && null !== $this->getFile()->getRealPath()) {
+            return $this->getFile()->getRealPath();
         } else {
             return $this->getPath();
         }
