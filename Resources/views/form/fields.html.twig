@@ -1,9 +1,14 @@
 {% block customfile_widget %}
     {% spaceless %}
-    {{ block('form_widget') }}
+        {{ block('form_widget') }}
 
-    {% if form.vars.path is defined and form.vars.path is not null %}
-        <a target="_blank" href="{{asset(form.vars.path)}}"><img src="{{asset(form.vars.path) }}"/></a>
-    {% endif %}
+        {% if form.vars.path is defined and form.vars.path is not null %}
+            {% if form.vars.h is defined and form.vars.w is defined %}
+                {% set runtimeConfig = {"thumbnail": {"size": [form.vars.h, form.vars.w] }} %}
+        <a target="_blank" href="{{asset(form.vars.path)}}"><img src="{{asset(form.vars.path)|imagine_filter('filebundle', runtimeConfig) }}"/></a>
+        {% else %}
+        <a target="_blank" href="{{asset(form.vars.path)}}"><img src="{{asset(form.vars.path)|imagine_filter('filebundle') }}"/></a>
+            {% endif %}
+        {% endif %}
     {% endspaceless %}
 {% endblock %}

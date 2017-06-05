@@ -20,6 +20,9 @@ class CustomFileType extends AbstractType {
             'data_class' => 'Paradise\FileBundle\Entity\File',
             'csrf_protection' => false,
             'path' => false,
+            'filter' => 'filebundle',
+            'h' => null,
+            'w' => null,
         ));
     }
 
@@ -35,6 +38,11 @@ class CustomFileType extends AbstractType {
 
             // set an "image_url" variable that will be available when rendering this field
             $view->vars['path'] = $imageUrl;
+        }
+        
+        if($options['h'] !== null && $options['w'] !== null){
+            $view->vars['h'] = $options['h'];
+            $view->vars['w'] = $options['w'];
         }
     }
 

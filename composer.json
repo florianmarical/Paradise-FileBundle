@@ -18,7 +18,8 @@
         "symfony/framework-bundle": ">=3.0",
         "twig/twig": "*",
         "doctrine/doctrine-bundle": "*",
-        "stof/doctrine-extensions-bundle": "^1.2"
+        "stof/doctrine-extensions-bundle": "^1.2",
+        "liip/imagine-bundle": "^1.8",
 
     },
     "autoload": {
