@@ -19,8 +19,7 @@
         "twig/twig": "*",
         "doctrine/doctrine-bundle": "*",
         "stof/doctrine-extensions-bundle": "^1.2",
-        "liip/imagine-bundle": "^1.8",
-
+        "liip/imagine-bundle": "^1.8"
     },
     "autoload": {
         "psr-0": {
