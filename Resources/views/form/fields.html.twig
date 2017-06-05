@@ -1,7 +1,9 @@
 {% block customfile_widget %}
     {% spaceless %}
-        {{ block('form_widget') }}
+        {% set type = type|default('file') %}
+<input class="display-inline-block"  type="{{type}}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
 
+<div class="display-inline-block">
         {% if form.vars.path is defined and form.vars.path is not null %}
             {% if form.vars.h is defined and form.vars.w is defined %}
                 {% set runtimeConfig = {"thumbnail": {"size": [form.vars.h, form.vars.w] }} %}
@@ -10,5 +12,6 @@
         <a target="_blank" href="{{asset(form.vars.path)}}"><img src="{{asset(form.vars.path)|imagine_filter('filebundle') }}"/></a>
             {% endif %}
         {% endif %}
+</div>
     {% endspaceless %}
 {% endblock %}
